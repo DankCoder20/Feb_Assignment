@@ -1,1 +1,68 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #yes {
+            background-color: red;
+            color: white;
+        }
+        #no {
+            background-color: white;
+            color: red;
+            position: absolute;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="question">
+        <h1>Will you be my Valentine? 💖</h1>
+        <button id="yes" onclick="showNextScreen()">Yes</button>
+        <button id="no" onmouseover="moveButton()">No</button>
+    </div>
+    
+    <div class="container hidden" id="response">
+        <h1>Yay! 🥰 You made my day! 💕</h1>
+    </div>
+
+    <script>
+        function moveButton() {
+            let noButton = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+
+        function showNextScreen() {
+            document.getElementById("question").classList.add("hidden");
+            document.getElementById("response").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
